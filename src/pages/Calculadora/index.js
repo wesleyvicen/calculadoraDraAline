@@ -189,7 +189,7 @@ export default function App() {
                         </tbody>
                     </table>
                     <div className={"divw"}>
-                        <a className={"whatsapp"} href={"https://api.whatsapp.com/send?phone=5581995167878&text=Tenho%20interesse"} target={"blank"}>
+                        <a className={"whatsapp"} href={"https://api.whatsapp.com/send?phone=5581996016299&text=Tenho%20interesse"} target={"blank"}>
                             <em className="fab fa-whatsapp"></em> ENTRE EM CONTATO PELO WHATSAPP
                         </a>
                     </div>
