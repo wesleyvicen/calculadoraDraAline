@@ -34,7 +34,7 @@ function maintenance() {
           <br/>
           * - ARTICAÍNA 4% :.
           <br/>
-          * [Com epinefrina 1:100.000 ou 1:200.000}
+          * [Com epinefrina 1:100.000 ou 1:200.000]
           <br/>
           Obs: Pacientes com alergia aos sulfitos:
           <br/>
