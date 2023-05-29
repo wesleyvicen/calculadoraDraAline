@@ -20,7 +20,7 @@ function Routes() {
         <Route path={'/protocolos'} component={protocolo}/>
         <Route path={'/asmaticos'} component={asmaticos}/>
         <Route path={'/pacientesInsuficiencia'} component={pacientesInsuficiencia}/>
-        <Route path={'/taxas'} component={taxas}/>
+        <Route path={'/porcentagens'} component={taxas}/>
 
       </Switch>
     </BrowserRouter>
