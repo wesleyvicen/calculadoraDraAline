@@ -10,7 +10,10 @@ export default function App() {
   const procedimentoOptions = ["Material (DENTISTA)", "Material (CONSULTÓRIO)"];
   const [valorPagarDentista, setValorPagarDentista] = useState(0);
 
+  const [valorTotal, setValorTotal] = useState(0);
+
   useEffect(() => {
+    document.title = 'Porcentagens - Calculadora';
     function calcularParcelas() {
       if (!valorCompra) {
         setParcelas([]);
@@ -55,9 +58,17 @@ export default function App() {
     }
 
     calcularParcelas();
-  }, [valorCompra, valorEntrada, procedimento]);
+
+    if (historico.length > 0) {
+      const somaValores = historico.reduce((total, calculo) => total + calculo.valorPagarDentista, 0);
+      setValorTotal(somaValores);
+    } else {
+      setValorTotal(0);
+    }
+  }, [valorCompra, valorEntrada, procedimento, historico]);
 
   const handleCalcular = () => {
+    
     const novoCalculo = {
       valorCompra: valorCompra,
       valorEntrada: valorEntrada,
@@ -66,6 +77,7 @@ export default function App() {
       valorPagarDentista: valorPagarDentista,
     };
     setHistorico([...historico, novoCalculo]);
+   
   };
 
   return (
@@ -115,8 +127,10 @@ export default function App() {
             </tbody>
           </table>
         </div>
+
         {historico.length > 0 && (
           <div className={"historico"}>
+            <h3 style={{ textAlign: "center" ,color: "green"}}>Soma dos Valores a Pagar a Dentista: {valorTotal}</h3>
             <h2 style={{ textAlign: "center" }}>Histórico de Cálculos</h2>
             {historico.map((calculo, index) => (
               <div key={index} className="calculo">
@@ -142,6 +156,8 @@ export default function App() {
             ))}
           </div>
         )}
+
+
       </Container>
     </>
   );

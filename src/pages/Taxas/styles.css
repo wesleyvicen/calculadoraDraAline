@@ -18,6 +18,9 @@
   padding: 15px 0;
   background: white;
 }
+.background{
+  background: #310204;
+}
 
 .logo {
   display: flex;
