@@ -6,7 +6,7 @@ import maintenance from "./pages/maintenance";
 import protocolo from "./pages/Protocolo";
 import asmaticos from "./pages/Protocolo/protocolos/asmaticos";
 import pacientesInsuficiencia from "./pages/Protocolo/protocolos/pacientes-insuficiencia";
-import taxas from "./pages/Taxas";
+import porcentagens from "./pages/Porcentagens";
 import './App.css';
 
 import Calculadora from './pages/Calculadora';
@@ -52,7 +52,7 @@ function LocationAwareApp() {
         <Route path="/protocolos" component={protocolo} />
         <Route path="/asmaticos" component={asmaticos} />
         <Route path="/pacientesInsuficiencia" component={pacientesInsuficiencia} />
-        <Route path="/porcentagens" component={taxas} />
+        <Route path="/porcentagens" component={porcentagens} />
       </Switch>
     </div>
   );

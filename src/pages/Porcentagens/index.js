@@ -105,9 +105,9 @@ export default function App() {
               </select>
             </div>
             <div className="divw">
-              <button type="button" className={"whatsapp"} onClick={handleCalcular}>
+            <a className={"whatsapp"}onClick={handleCalcular}>
                 Salvar
-              </button>
+              </a>
             </div>
           </form>
         </div>
