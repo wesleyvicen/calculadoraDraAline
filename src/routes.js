@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import home from "./pages/Calculadora";
 import maintenance from "./pages/maintenance";
