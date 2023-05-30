@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
 
 import home from "./pages/Calculadora";
@@ -25,30 +25,35 @@ function Routes() {
     }
   }
 
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.classList.add(getBackgroundClass(window.location));
+    return () => {
+      body.classList.remove(getBackgroundClass(window.location));
+    };
+  }, []);
+
   return (
     <BrowserRouter>
-      <LocationAwareApp getBackgroundClass={getBackgroundClass} />
+      <div className="app">
+        <LocationAwareApp />
+      </div>
     </BrowserRouter>
   );
 }
 
-function LocationAwareApp({ getBackgroundClass }) {
-  const location = useLocation();
-
+function LocationAwareApp() {
   return (
-    <div className="app">
-      <div className={`background ${getBackgroundClass(location)}`} />
-      <div className="content">
-        <Switch>
-          <Route path="/" exact component={home} />
-          <Route path="/calculadora" component={Calculadora} />
-          <Route path="/maintenance" component={maintenance} />
-          <Route path="/protocolos" component={protocolo} />
-          <Route path="/asmaticos" component={asmaticos} />
-          <Route path="/pacientesInsuficiencia" component={pacientesInsuficiencia} />
-          <Route path="/porcentagens" component={taxas} />
-        </Switch>
-      </div>
+    <div className="content">
+      <Switch>
+        <Route path="/" exact component={home} />
+        <Route path="/calculadora" component={Calculadora} />
+        <Route path="/maintenance" component={maintenance} />
+        <Route path="/protocolos" component={protocolo} />
+        <Route path="/asmaticos" component={asmaticos} />
+        <Route path="/pacientesInsuficiencia" component={pacientesInsuficiencia} />
+        <Route path="/porcentagens" component={taxas} />
+      </Switch>
     </div>
   );
 }
