@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./styles";
+import "./styles.css";
+import logoImg from "../../images/logo.png";
 
 export default function App() {
     const [valorCompra, setValorCompra] = useState(0);
@@ -135,7 +137,7 @@ export default function App() {
         <>
             <Container>
                 <div className={"logo"}>
-                    <img src={require("../../images/logo.png")} width="250" height="87" alt={"Calculadora de Taxas"} />
+                    <img src={logoImg} width="250" height="87" alt={"Calculadora de Taxas"} />
                 </div>
                 <div className={"boxImage"}>
                     <form>

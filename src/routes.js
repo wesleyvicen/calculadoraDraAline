@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import home from "./pages/Calculadora";
+import Calculadora from "./pages/Calculadora";
 import maintenance from "./pages/maintenance";
-import protocolo from "./pages/Protocolo";
+import Protocolo from "./pages/Protocolo";
 import asmaticos from "./pages/Protocolo/protocolos/asmaticos";
 import pacientesInsuficiencia from "./pages/Protocolo/protocolos/pacientes-insuficiencia";
 import porcentagens from "./pages/Porcentagens";
 import PWAFeatures from './components/PWAFeatures';
+import PWAInstallButton from './components/PWAInstallButton';
 import './App.css';
-
-import Calculadora from './pages/Calculadora';
 
 function Routes() {
   function getBackgroundClass(location) {
@@ -37,6 +36,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <div className="app">
+        <PWAInstallButton />
         <PWAFeatures />
         <LocationAwareApp />
       </div>
@@ -48,10 +48,10 @@ function LocationAwareApp() {
   return (
     <div className="content">
       <Switch>
-        <Route path="/" exact component={home} />
+        <Route path="/" exact component={Calculadora} />
         <Route path="/calculadora" component={Calculadora} />
         <Route path="/maintenance" component={maintenance} />
-        <Route path="/protocolos" component={protocolo} />
+        <Route path="/protocolos" component={Protocolo} />
         <Route path="/asmaticos" component={asmaticos} />
         <Route path="/pacientesInsuficiencia" component={pacientesInsuficiencia} />
         <Route path="/porcentagens" component={porcentagens} />
