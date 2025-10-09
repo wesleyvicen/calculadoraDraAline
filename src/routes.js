@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Routes as RouterRoutes, Route} from 'react-router-dom';
 
 import Calculadora from "./pages/Calculadora";
 import maintenance from "./pages/maintenance";
@@ -47,15 +47,15 @@ function Routes() {
 function LocationAwareApp() {
   return (
     <div className="content">
-      <Switch>
-        <Route path="/" exact component={Calculadora} />
-        <Route path="/calculadora" component={Calculadora} />
-        <Route path="/maintenance" component={maintenance} />
-        <Route path="/protocolos" component={Protocolo} />
-        <Route path="/asmaticos" component={asmaticos} />
-        <Route path="/pacientesInsuficiencia" component={pacientesInsuficiencia} />
-        <Route path="/porcentagens" component={porcentagens} />
-      </Switch>
+      <RouterRoutes>
+        <Route path="/" element={<Calculadora />} />
+        <Route path="/calculadora" element={<Calculadora />} />
+        <Route path="/maintenance" element={React.createElement(maintenance)} />
+        <Route path="/protocolos" element={<Protocolo />} />
+        <Route path="/asmaticos" element={React.createElement(asmaticos)} />
+        <Route path="/pacientesInsuficiencia" element={React.createElement(pacientesInsuficiencia)} />
+        <Route path="/porcentagens" element={React.createElement(porcentagens)} />
+      </RouterRoutes>
     </div>
   );
 }

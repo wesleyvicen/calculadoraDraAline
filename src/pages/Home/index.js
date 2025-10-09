@@ -1,8 +1,6 @@
 import React from "react";
 import { Container, Row } from "./styles";
 
-import "materialize-css";
-
 import { Link } from "react-router-dom";
 
 export default function Calculadora() {
