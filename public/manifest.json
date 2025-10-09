@@ -1,0 +1,32 @@
+{
+  "short_name": "Calculadora Dra Aline",
+  "name": "Calculadora de Taxas - Dra Aline",
+  "description": "Aplicativo para simular taxas no cartão de crédito e cálculos médicos",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512x512.png", 
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#4285f4",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["medical", "productivity", "utilities"],
+  "lang": "pt-BR"
+}

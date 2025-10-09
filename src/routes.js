@@ -7,6 +7,7 @@ import protocolo from "./pages/Protocolo";
 import asmaticos from "./pages/Protocolo/protocolos/asmaticos";
 import pacientesInsuficiencia from "./pages/Protocolo/protocolos/pacientes-insuficiencia";
 import porcentagens from "./pages/Porcentagens";
+import PWAFeatures from './components/PWAFeatures';
 import './App.css';
 
 import Calculadora from './pages/Calculadora';
@@ -36,6 +37,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <div className="app">
+        <PWAFeatures />
         <LocationAwareApp />
       </div>
     </BrowserRouter>
