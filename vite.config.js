@@ -33,13 +33,6 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}']
-      },
-      srcDir: 'src',
-      filename: 'sw.js',
-      strategies: 'injectManifest',
-      injectManifest: {
-        swSrc: 'src/sw.js',
-        swDest: 'sw.js',
       }
     })
   ],
