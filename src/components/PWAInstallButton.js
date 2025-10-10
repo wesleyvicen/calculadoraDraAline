@@ -92,19 +92,8 @@ const PWAInstallButton = () => {
     );
   }
 
-  return (
-    <>
-      <div style={statusStyle}>
-        {canInstall ? '📱 PWA Pronto para Instalar' : '⏳ Aguardando PWA...'}
-      </div>
-      
-      {canInstall && (
-        <button style={buttonStyle} onClick={handleInstallClick}>
-          📥 Instalar App
-        </button>
-      )}
-    </>
-  );
+  // Não mostrar nada quando não instalado ou pronto para instalar
+  return null;
 };
 
 export default PWAInstallButton;

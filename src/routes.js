@@ -34,7 +34,7 @@ function Routes() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true }}>
       <div className="app">
         <PWAInstallButton />
         <PWAFeatures />
