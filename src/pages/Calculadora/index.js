@@ -133,6 +133,16 @@ export default function App() {
         handleChangeInput();
     }, [valorCompra, valorEntrada, taxaDebito, cartao]);
 
+    // Ref para a tabela
+    const tableRef = React.useRef(null);
+
+    // Função para scrollar até a tabela
+    function scrollToTable() {
+        if (tableRef.current) {
+            tableRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
     return (
         <>
             <Container>
@@ -143,12 +153,39 @@ export default function App() {
                     <form>
                         <div className="group">
                             <label>Valor da compra:</label>
-                            <input type="number" required autoFocus={true} onChange={(e) => setValorCompra(e.target.value)} placeholder={"R$ 0,00"} />
+                            <input
+                                type="number"
+                                required
+                                autoFocus={true}
+                                onChange={(e) => {
+                                    setValorCompra(e.target.value);
+                                    scrollToTable();
+                                }}
+                                placeholder={"R$ 0,00"}
+                                onKeyDown={e => {
+                                    if (e.key === 'Enter') {
+                                        e.target.blur();
+                                    }
+                                }}
+                            />
                         </div>
 
                         <div className="group">
                             <label>Entrada em dinheiro:</label>
-                            <input type="number" required onChange={(e) => setValorEntrada(e.target.value)} placeholder={"R$ 0,00"} />
+                            <input
+                                type="number"
+                                required
+                                onChange={(e) => {
+                                    setValorEntrada(e.target.value);
+                                    scrollToTable();
+                                }}
+                                placeholder={"R$ 0,00"}
+                                onKeyDown={e => {
+                                    if (e.key === 'Enter') {
+                                        e.target.blur();
+                                    }
+                                }}
+                            />
                         </div>
                         <div className="group">
                             <label>Bandeira do Cartão:</label>
@@ -161,7 +198,7 @@ export default function App() {
                         </div>
                     </form>
                 </div>
-                <div className={"boxTable"}>
+                <div className={"boxTable"} ref={tableRef}>
                     <table>
                         <thead>
                             <tr>
