@@ -84,12 +84,10 @@ const PWAInstallButton = () => {
     zIndex: 9999
   };
 
+
+  // Não mostrar nada quando instalado ou não pronto para instalar
   if (isInstalled) {
-    return (
-      <div style={statusStyle}>
-        ✅ PWA Instalado
-      </div>
-    );
+    return null;
   }
 
   // Não mostrar nada quando não instalado ou pronto para instalar
