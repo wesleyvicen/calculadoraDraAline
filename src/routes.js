@@ -7,29 +7,26 @@ import Protocolo from "./pages/Protocolo";
 import asmaticos from "./pages/Protocolo/protocolos/asmaticos";
 import pacientesInsuficiencia from "./pages/Protocolo/protocolos/pacientes-insuficiencia";
 import porcentagens from "./pages/Porcentagens";
+import Pedidos from "./pages/Pedidos";
 import PWAFeatures from './components/PWAFeatures';
 import PWAInstallButton from './components/PWAInstallButton';
 import './App.css';
 
 function Routes() {
   function getBackgroundClass(location) {
-    switch (location.pathname) {
-      case '/':
-        return 'calculadora';
-      case '/maintenance':
-        return 'maintenance';
-      case '/porcentagens':
-        return 'porcentagens';
-      default:
-        return '';
-    }
+    return 'calculadora';
   }
 
   useEffect(() => {
     const body = document.querySelector('body');
-    body.classList.add(getBackgroundClass(window.location));
+    const className = getBackgroundClass(window.location);
+    if (className) {
+      body.classList.add(className);
+    }
     return () => {
-      body.classList.remove(getBackgroundClass(window.location));
+      if (className) {
+        body.classList.remove(className);
+      }
     };
   }, []);
 
@@ -55,6 +52,7 @@ function LocationAwareApp() {
         <Route path="/asmaticos" element={React.createElement(asmaticos)} />
         <Route path="/pacientesInsuficiencia" element={React.createElement(pacientesInsuficiencia)} />
         <Route path="/porcentagens" element={React.createElement(porcentagens)} />
+        <Route path="/pedidos" element={<Pedidos />} />
       </RouterRoutes>
     </div>
   );
