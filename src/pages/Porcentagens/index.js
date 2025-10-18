@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "./styles";
+import { Container, Box, Typography, Paper } from "@mui/material";
+import logo from '../../images/logo.png';
 
 export default function App() {
   const [valorCompra, setValorCompra] = useState(0);
@@ -81,84 +82,79 @@ export default function App() {
   };
 
   return (
-    <>
-      <Container>
-        <div className={"logo"}>
-          <img src={require("../../images/logo.png")} width="250" height="87" alt={"Calculadora de Taxas"} />
-        </div>
-        <div className={"boxImage"}>
-          <form>
-            <div className="group">
-              <label>Valor do Procedimento:</label>
-              <input type="number" required autoFocus={true} onChange={(e) => setValorCompra(e.target.value)} placeholder={"R$ 0,00"} />
-            </div>
-
-            <div className="group">
-              <label>Descontos</label>
-              <input type="number" required onChange={(e) => setValorEntrada(e.target.value)} placeholder={"R$ 0,00"} />
-            </div>
-            <div className="group">
-              <label>Procedimentos</label>
-              <select name="select" onChange={(e) => setProcedimento(e.target.value)}>
-                <option value={"0"}>Material (DENTISTA)</option>
-                <option value={"1"}>Material (CONSULTÓRIO)</option>
-              </select>
-            </div>
-            <div className="divw">
-            <a className={"whatsapp"}onClick={handleCalcular}>
-                Salvar
-              </a>
-            </div>
-          </form>
-        </div>
-        <div className={"boxTable"}>
-          <table>
-            <thead>
-              <tr>
-                <th>VALOR PARA O DENTISTA</th>
+    <Container maxWidth="sm" sx={{ bgcolor: '#fff', minHeight: '100vh', py: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+        <img src={logo} width="180" height="60" alt="Calculadora de Taxas" style={{ objectFit: 'contain' }} />
+      </Box>
+      <Paper elevation={3} sx={{ p: 3, mb: 3, borderRadius: 3 }}>
+        <form>
+          <Box sx={{ mb: 2 }}>
+            <Typography fontWeight={600} mb={1}>Valor do Procedimento:</Typography>
+            <input type="number" required autoFocus={true} onChange={(e) => setValorCompra(e.target.value)} placeholder="R$ 0,00" style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }} />
+          </Box>
+          <Box sx={{ mb: 2 }}>
+            <Typography fontWeight={600} mb={1}>Descontos</Typography>
+            <input type="number" required onChange={(e) => setValorEntrada(e.target.value)} placeholder="R$ 0,00" style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }} />
+          </Box>
+          <Box sx={{ mb: 2 }}>
+            <Typography fontWeight={600} mb={1}>Procedimentos</Typography>
+            <select name="select" onChange={(e) => setProcedimento(e.target.value)} style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }}>
+              <option value={"0"}>Material (DENTISTA)</option>
+              <option value={"1"}>Material (CONSULTÓRIO)</option>
+            </select>
+          </Box>
+          <Box sx={{ textAlign: 'center', mt: 2 }}>
+            <button type="button" onClick={handleCalcular} style={{ background: '#310204', color: '#fff', fontWeight: 700, border: 'none', borderRadius: 6, padding: '10px 32px', fontSize: '1.1rem', cursor: 'pointer' }}>Salvar</button>
+          </Box>
+        </form>
+      </Paper>
+      <Paper elevation={2} sx={{ p: 2, mb: 3, borderRadius: 3 }}>
+        <Typography fontWeight={600} mb={2}>Valor para o Dentista</Typography>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left', padding: 8, background: '#f5f5f5', color: '#310204' }}>VALOR PARA O DENTISTA</th>
+            </tr>
+          </thead>
+          <tbody>
+            {parcelas.map((item) => (
+              <tr key={item.parcela.toString()}>
+                <td style={{ padding: 8 }}>{item.valorPagarDentista}</td>
               </tr>
-            </thead>
-            <tbody>
-              {parcelas.map((item) => (
-                <tr key={item.parcela.toString()}>
-                  <td>{item.valorPagarDentista}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {historico.length > 0 && (
-          <div className={"historico"}>
-            <h3 style={{ textAlign: "center" ,color: "green"}}>Soma dos Valores a Pagar a Dentista: {valorTotal}</h3>
-            <h2 style={{ textAlign: "center" }}>Histórico de Cálculos</h2>
-            {historico.map((calculo, index) => (
-              <div key={index} className="calculo">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>VALOR DO PROCEDIMENTO</th>
-                      <th>DESCONTO</th>
-                      <th>VALOR PARA O DENTISTA</th>
-                      <th>PROCEDIMENTO</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{calculo.valorCompra}</td>
-                      <td>{calculo.valorEntrada}</td>
-                      <td>{calculo.valorPagarDentista}</td>
-                      <td>{calculo.procedimento}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             ))}
-          </div>
-        )}
-
-
-      </Container>
-    </>
+          </tbody>
+        </table>
+      </Paper>
+      {historico.length > 0 && (
+        <Paper elevation={1} sx={{ p: 2, borderRadius: 3, mb: 2 }}>
+          <Typography variant="h6" color="success.main" fontWeight={700} textAlign="center" mb={2}>
+            Soma dos Valores a Pagar a Dentista: R$ {valorTotal}
+          </Typography>
+          <Typography variant="h6" textAlign="center" mb={2}>Histórico de Cálculos</Typography>
+          {historico.map((calculo, index) => (
+            <Box key={index} sx={{ mb: 2 }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr>
+                    <th style={{ padding: 6, background: '#f5f5f5', color: '#310204' }}>VALOR DO PROCEDIMENTO</th>
+                    <th style={{ padding: 6, background: '#f5f5f5', color: '#310204' }}>DESCONTO</th>
+                    <th style={{ padding: 6, background: '#f5f5f5', color: '#310204' }}>VALOR PARA O DENTISTA</th>
+                    <th style={{ padding: 6, background: '#f5f5f5', color: '#310204' }}>PROCEDIMENTO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style={{ padding: 6 }}>{calculo.valorCompra}</td>
+                    <td style={{ padding: 6 }}>{calculo.valorEntrada}</td>
+                    <td style={{ padding: 6 }}>{calculo.valorPagarDentista}</td>
+                    <td style={{ padding: 6 }}>{calculo.procedimento}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </Box>
+          ))}
+        </Paper>
+      )}
+    </Container>
   );
 }

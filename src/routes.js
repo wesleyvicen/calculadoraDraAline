@@ -10,6 +10,7 @@ import porcentagens from "./pages/Porcentagens";
 import Pedidos from "./pages/Pedidos";
 import PWAFeatures from './components/PWAFeatures';
 import PWAInstallButton from './components/PWAInstallButton';
+import MobileNavbar from './components/MobileNavbar';
 import './App.css';
 
 function Routes() {
@@ -32,10 +33,11 @@ function Routes() {
 
   return (
     <BrowserRouter future={{ v7_startTransition: true }}>
-      <div className="app">
+      <div className="app" style={{ paddingBottom: 70 }}>
         <PWAInstallButton />
         <PWAFeatures />
         <LocationAwareApp />
+        <MobileNavbar />
       </div>
     </BrowserRouter>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import logo from '../../images/logo.png';
 import {
   Box,
   Button,
@@ -402,25 +403,37 @@ const PedidoPage = () => {
     );
   };
 
+  // Cores do sistema
+  const colors = {
+    vinho: '#310204',
+    branco: '#fff',
+    azulClaro: '#e6f8fd',
+    amareloClaro: '#fff9c4',
+  };
+
   return (
-    <Container maxWidth="sm" sx={{ py: 6, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-  <Card sx={{ width: '100%', boxShadow: 6, borderRadius: 4 }}>
+    <Container maxWidth="sm" sx={{ py: 6, minHeight: '100vh', bgcolor: colors.branco, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
+        <img src={logo} alt="Logo" style={{ height: 56, objectFit: 'contain' }} />
+      </div>
+      <Card sx={{ width: '100%', boxShadow: 6, borderRadius: 4, bgcolor: colors.branco, border: `2px solid ${colors.vinho}` }}>
         <CardHeader
-          title={<Typography variant="h4" color="primary.dark">Cadastro de Produtos</Typography>}
-          sx={{ textAlign: 'center', pb: 0 }}
+          title={<Typography variant="h4" sx={{ color: colors.vinho }}>Pedidos de Produtos</Typography>}
+          sx={{ textAlign: 'center', pb: 0, bgcolor: colors.branco }}
         />
-        <Divider />
+        <Divider sx={{ bgcolor: colors.vinho, height: 2 }} />
         <CardContent>
           <Box component="form" onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <FormControl fullWidth required>
-                <InputLabel id="category-label">Categoria</InputLabel>
+                <InputLabel id="category-label" sx={{ color: colors.vinho }}>Categoria</InputLabel>
                 <Select
                   labelId="category-label"
                   id="categorySelect"
                   value={category}
                   label="Categoria"
                   onChange={handleCategoryChange}
+                  sx={{ bgcolor: colors.branco, color: colors.vinho }}
                 >
                   <MenuItem value=""><em>Selecione uma Categoria</em></MenuItem>
                   {Object.keys(productsData).map((cat) => (
@@ -430,12 +443,12 @@ const PedidoPage = () => {
               </FormControl>
               {category && (
                 <>
-                  <Typography variant="h6" color="primary" sx={{ mb: 1, fontWeight: 600 }}>
+                  <Typography variant="h6" sx={{ mb: 1, fontWeight: 600, color: colors.vinho }}>
                     Produtos da Categoria: {category}
                   </Typography>
                   <Box>{renderProducts()}</Box>
-                  <Divider sx={{ my: 2 }} />
-                  <Typography variant="subtitle1" color="secondary" sx={{ fontWeight: 500 }}>
+                  <Divider sx={{ my: 2, bgcolor: colors.vinho, height: 2 }} />
+                  <Typography variant="subtitle1" sx={{ fontWeight: 500, color: colors.vinho }}>
                     Outro Produto
                   </Typography>
                   <Stack spacing={2}>
@@ -445,8 +458,7 @@ const PedidoPage = () => {
                         sx={{
                           p: 2.5,
                           borderRadius: 3,
-                          background: '#e6f8fd',
-                          border: '2px solid #3ec46d',
+                          background: colors.azulClaro,
                           boxShadow: 'none',
                         }}
                       >
@@ -460,16 +472,16 @@ const PedidoPage = () => {
                               variant="outlined"
                               size="small"
                               sx={{
-                                bgcolor: '#fff9c4',
+                                bgcolor: colors.amareloClaro,
                                 borderRadius: 2,
                                 input: {
-                                  color: '#310204',
-                                  fontWeight: 700,
+                                  color: colors.vinho,
+                                  
                                   fontSize: '1.1rem',
                                   letterSpacing: 0.5,
                                 },
                                 '& .MuiInputLabel-root': {
-                                  color: '#310204',
+                                  color: colors.vinho,
                                 },
                               }}
                             />
@@ -485,16 +497,16 @@ const PedidoPage = () => {
                               disabled={!prod.name.trim()}
                               variant="outlined"
                               sx={{
-                                bgcolor: '#fff9c4',
+                                bgcolor: colors.amareloClaro,
                                 borderRadius: 2,
                                 input: {
-                                  color: '#310204',
-                                  fontWeight: 700,
+                                  color: colors.vinho,
+                                  fontWeight: 100,
                                   fontSize: '1.1rem',
                                   letterSpacing: 0.5,
                                 },
                                 '& .MuiInputLabel-root': {
-                                  color: '#310204',
+                                  color: colors.vinho,
                                 },
                               }}
                             />
@@ -508,33 +520,32 @@ const PedidoPage = () => {
               <Button
                 type="submit"
                 variant="contained"
-                color="primary"
                 fullWidth
                 size="large"
                 startIcon={<WhatsAppIcon />}
-                sx={{ fontWeight: 700, letterSpacing: 1, py: 1.5 }}
+                sx={{ fontWeight: 700, letterSpacing: 1, py: 1.5, bgcolor: colors.vinho, color: colors.branco, '&:hover': { bgcolor: '#4a0a1a' } }}
               >
                 Enviar
               </Button>
             {/* Modal de confirmação */}
             <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)} PaperProps={{
-              sx: { borderRadius: 4, p: 1, minWidth: 340, bgcolor: '#f8fafc' }
+              sx: { borderRadius: 4, p: 1, minWidth: 340, bgcolor: colors.azulClaro }
             }}>
               <DialogTitle sx={{ display: 'flex', alignItems: 'center', gap: 1, pb: 0 }}>
-                <CheckCircleOutlineIcon color="success" sx={{ fontSize: 32 }} />
-                <Typography variant="h6" color="success.main" fontWeight={700}>
+                <CheckCircleOutlineIcon sx={{ fontSize: 32, color: colors.vinho }} />
+                <Typography variant="h6" sx={{ color: colors.vinho, fontWeight: 700 }}>
                   Confirmar Pedido
                 </Typography>
               </DialogTitle>
               <DialogContent sx={{ pt: 1, pb: 2 }}>
-                <Typography variant="subtitle1" sx={{ mb: 2, color: 'text.secondary' }}>
+                <Typography variant="subtitle1" sx={{ mb: 2, color: colors.vinho }}>
                   Confira seu pedido antes de enviar:
                 </Typography>
-                <Paper elevation={0} sx={{ bgcolor: '#e6f8fd', border: '2px solid #3ec46d', borderRadius: 2, p: 2, mb: 2 }}>
-                  <Typography variant="body1" sx={{ fontWeight: 600, mb: 1, color: '#310204' }}>
+                <Paper elevation={0} sx={{ bgcolor: colors.azulClaro, borderRadius: 2, p: 2, mb: 2 }}>
+                  <Typography variant="body1" sx={{ fontWeight: 600, mb: 1, color: colors.vinho }}>
                     Categoria: {pendingOrder.category}
                   </Typography>
-                  <ul style={{ margin: 0, paddingLeft: 18, color: '#222', fontSize: '1.08rem', fontWeight: 500 }}>
+                  <ul style={{ margin: 0, paddingLeft: 18, color: colors.vinho, fontSize: '1.08rem', fontWeight: 500 }}>
                     {pendingOrder.selected.map((item, i) => (
                       <li key={i}>{item.name} <b>x{item.quantity}</b></li>
                     ))}
@@ -543,15 +554,15 @@ const PedidoPage = () => {
                     ))}
                   </ul>
                 </Paper>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                <Typography variant="body2" sx={{ mt: 1, color: colors.vinho }}>
                   Após confirmar, você será redirecionado para o WhatsApp.
                 </Typography>
               </DialogContent>
               <DialogActions sx={{ px: 3, pb: 2, justifyContent: 'space-between' }}>
-                <Button onClick={() => setConfirmOpen(false)} color="inherit" sx={{ fontWeight: 600, borderRadius: 2 }}>
+                <Button onClick={() => setConfirmOpen(false)} color="inherit" sx={{ fontWeight: 600, borderRadius: 2, color: colors.vinho }}>
                   Cancelar
                 </Button>
-                <Button onClick={handleConfirmOrder} color="success" variant="contained" sx={{ fontWeight: 700, borderRadius: 2 }} startIcon={<WhatsAppIcon />}>
+                <Button onClick={handleConfirmOrder} variant="contained" sx={{ fontWeight: 700, borderRadius: 2, bgcolor: colors.vinho, color: colors.branco, '&:hover': { bgcolor: '#4a0a1a' } }} startIcon={<WhatsAppIcon />}>
                   Confirmar e Enviar
                 </Button>
               </DialogActions>
