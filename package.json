@@ -1,6 +1,7 @@
 {
-  "name": "calculadoraTaxas",
+  "name": "utilitarios-consultorio-dra-aline-oliveira",
   "version": "0.1.0",
+  "description": "Utilitários – Consultório Dra. Aline Oliveira: cálculo de taxas, pedidos de materiais e ferramentas administrativas",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",

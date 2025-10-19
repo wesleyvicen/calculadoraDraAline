@@ -109,6 +109,7 @@ export const Container = styled.div`
         text-align: center;
         padding: 8px;
     }
+
     @media only screen and (min-width: 320px) {
         margin: 15px 25px;
     }

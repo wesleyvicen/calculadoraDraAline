@@ -341,9 +341,9 @@ export const Container = styled.div`
         color: #210101;
     }
 
-    @media (min-width: 620px) {
-        .confirm-modal { padding: 22px 20px; }
-        .confirm-modal ul { max-height: 260px; }
+    
+    @media only screen and (min-width: 320px) {
+        margin: 15px 25px;
     }
 
     @media only screen and (min-width: 620px) {

@@ -1,7 +1,7 @@
 {
-  "short_name": "Calculadora Dra Aline",
-  "name": "Calculadora de Taxas - Dra Aline",
-  "description": "Aplicativo para simular taxas no cartão de crédito e cálculos médicos",
+  "short_name": "Utilitários Dra Aline",
+  "name": "Utilitários – Consultório Dra. Aline Oliveira",
+  "description": "Utilitários do consultório: cálculo de taxas, pedidos de materiais, porcentagens e ferramentas administrativas",
   "icons": [
     {
       "src": "favicon.ico",

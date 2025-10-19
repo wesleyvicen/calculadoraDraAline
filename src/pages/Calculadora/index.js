@@ -3,6 +3,9 @@ import { Container, GlobalStyle } from "./styles";
 import logoImg from "../../images/logo.png";
 
 export default function App() {
+    useEffect(() => {
+        document.title = 'Calculadora - Utilitários Dra. Aline Oliveira';
+    }, []);
     const [valorCompra, setValorCompra] = useState(0);
     const [valorEntrada, setValorEntrada] = useState(0);
     const [parcelas, setParcelas] = useState([]);
@@ -147,7 +150,7 @@ export default function App() {
             <GlobalStyle />
             <Container>
                 <div className={"logo"}>
-                    <img src={logoImg} width="250" height="87" alt={"Calculadora de Taxas"} />
+                    <img src={logoImg} width="250" height="87" alt={"Utilitários – Consultório Dra. Aline Oliveira"} />
                 </div>
                 <div className={"boxImage"}>
                     <form>

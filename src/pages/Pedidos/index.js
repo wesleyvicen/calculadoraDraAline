@@ -145,6 +145,9 @@ const productsData = {
 };
 
 const PedidoPage = () => {
+  useEffect(() => {
+    document.title = 'Pedidos - Utilitários Dra. Aline Oliveira';
+  }, []);
   const [category, setCategory] = useState("");
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [otherProducts, setOtherProducts] = useState([
@@ -340,7 +343,7 @@ const PedidoPage = () => {
           src={logo}
           width="250"
           height="87"
-          alt={"Calculadora de Taxas"}
+          alt={"Utilitários – Consultório Dra. Aline Oliveira"}
         />
       </div>
       <div className="boxImage">

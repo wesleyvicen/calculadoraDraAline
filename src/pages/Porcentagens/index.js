@@ -14,7 +14,7 @@ export default function App() {
   const [valorTotal, setValorTotal] = useState(0);
 
   useEffect(() => {
-    document.title = 'Porcentagens - Calculadora';
+  document.title = 'Porcentagens - Utilitários Dra. Aline Oliveira';
     function calcularParcelas() {
       if (!valorCompra) {
         setParcelas([]);

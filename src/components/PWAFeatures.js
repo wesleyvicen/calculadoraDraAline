@@ -109,13 +109,13 @@ const PWAFeatures = () => {
     <>
       <OfflineNotification show={!isOnline}>
         <i className="fas fa-wifi" style={{ marginRight: '8px' }}></i>
-        Você está offline. A calculadora continuará funcionando normalmente!
+  Você está offline. Os utilitários do consultório continuarão funcionando normalmente!
       </OfflineNotification>
 
       <InstallPrompt show={showInstallPrompt}>
         <div style={{ marginBottom: '10px' }}>
           <i className="fas fa-download" style={{ marginRight: '8px' }}></i>
-          <strong>Instalar Calculadora Dra Aline</strong>
+          <strong>Instalar Utilitários – Consultório Dra. Aline Oliveira</strong>
         </div>
         <p style={{ margin: '5px 0', fontSize: '14px' }}>
           Instale o app no seu dispositivo para acesso rápido e funcionamento offline!
