@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "./styles";
-import "./styles.css";
+import { Container, GlobalStyle } from "./styles";
 import logoImg from "../../images/logo.png";
 
 export default function App() {
@@ -145,6 +144,7 @@ export default function App() {
 
     return (
         <>
+            <GlobalStyle />
             <Container>
                 <div className={"logo"}>
                     <img src={logoImg} width="250" height="87" alt={"Calculadora de Taxas"} />

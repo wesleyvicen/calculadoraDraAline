@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+`;
 
 export const Container = styled.div`
     font-family: "Roboto";
@@ -18,7 +27,8 @@ export const Container = styled.div`
         display: flex;
         max-width: 250px;
         max-height: 95px;
-        margin: 2% auto 5%;
+        margin: 4% auto 1%;
+        color: white;
     }
 
     .item {
@@ -26,9 +36,6 @@ export const Container = styled.div`
         flex-grow: 1;
     }
 
-    * {
-        box-sizing: border-box;
-    }
     tr:nth-child(odd) {
         background-color: #fff;
     }
@@ -60,6 +67,7 @@ export const Container = styled.div`
     select {
         -webkit-appearance: none;
         -moz-appearance: none;
+        appearance: none;
         text-indent: 1px;
         text-overflow: "";
         background: transparent;
