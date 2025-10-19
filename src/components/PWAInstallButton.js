@@ -58,7 +58,7 @@ const PWAInstallButton = () => {
   // Estilo inline para garantir visibilidade
   const buttonStyle = {
     position: 'fixed',
-    top: '10px',
+    bottom: '80px',
     right: '10px',
     backgroundColor: '#4285f4',
     color: 'white',
@@ -90,8 +90,17 @@ const PWAInstallButton = () => {
     return null;
   }
 
-  // Não mostrar nada quando não instalado ou pronto para instalar
-  return null;
+  // Mostrar botão somente se pode instalar
+  if (!canInstall) return null;
+
+  return (
+    <>
+      <button style={buttonStyle} onClick={handleInstallClick}>
+        Instalar App
+      </button>
+      <div style={statusStyle}>{isInstalled ? 'Instalado' : 'Instalar disponível'}</div>
+    </>
+  );
 };
 
 export default PWAInstallButton;
