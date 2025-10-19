@@ -93,14 +93,7 @@ const PWAInstallButton = () => {
   // Mostrar botão somente se pode instalar
   if (!canInstall) return null;
 
-  return (
-    <>
-      <button style={buttonStyle} onClick={handleInstallClick}>
-        Instalar App
-      </button>
-      <div style={statusStyle}>{isInstalled ? 'Instalado' : 'Instalar disponível'}</div>
-    </>
-  );
+  return null
 };
 
 export default PWAInstallButton;

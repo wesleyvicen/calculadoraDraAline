@@ -18,7 +18,7 @@ const OfflineNotification = styled.div`
 
 const InstallPrompt = styled.div`
   position: fixed;
-  bottom: 20px;
+  bottom: 90px; /* sobe acima da navbar (navbar ~64px) */
   left: 20px;
   right: 20px;
   background: linear-gradient(135deg, #4285f4, #34a853);
@@ -26,10 +26,10 @@ const InstallPrompt = styled.div`
   padding: 15px;
   border-radius: 10px;
   text-align: center;
-  z-index: 1000;
+  z-index: 1201; /* acima da navbar (1200) */
   transform: translateY(${props => props.show ? '0' : '100px'});
   opacity: ${props => props.show ? '1' : '0'};
-  transition: all 0.3s ease-in-out;
+  transition: bottom 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 `;
 
