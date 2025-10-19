@@ -29,6 +29,8 @@ const InstallPrompt = styled.div`
   z-index: 1201; /* acima da navbar (1200) */
   transform: translateY(${props => props.show ? '0' : '100px'});
   opacity: ${props => props.show ? '1' : '0'};
+  pointer-events: ${props => props.show ? 'auto' : 'none'}; /* não bloqueia elementos por trás quando oculto */
+  user-select: none; /* evita seleção de texto acidental */
   transition: bottom 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 `;
@@ -42,6 +44,8 @@ const InstallButton = styled.button`
   margin: 0 5px;
   cursor: pointer;
   font-weight: bold;
+  user-select: none;
+  touch-action: manipulation;
   
   &:hover {
     background: rgba(255,255,255,0.3);
